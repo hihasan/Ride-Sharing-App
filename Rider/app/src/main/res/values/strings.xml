@@ -9,4 +9,6 @@
 
     <!--Default String-->
     <string name="emo_txt">Check your Internet Connection</string>
+    <string name="sign_out">Do You Want To Sign Out? </string>
+    <string name="exit">Do You Want To Exit? </string>
 </resources>
