@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -45,36 +46,43 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        when (item.itemId) {
+//            R.id.action_settings -> return true
+//            else -> return super.onOptionsItemSelected(item)
+//        }
+//    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
+            R.id.nav_trips -> {
                 // Handle the camera action
+                Toast.makeText(applicationContext,"Trips Information",Toast.LENGTH_SHORT).show()
             }
-            R.id.nav_gallery -> {
-
+            R.id.nav_help -> {
+                Toast.makeText(applicationContext,"Help",Toast.LENGTH_SHORT).show()
             }
-            R.id.nav_slideshow -> {
-
+            R.id.nav_payment -> {
+                Toast.makeText(applicationContext,"Paymenet Information",Toast.LENGTH_SHORT).show()
             }
-            R.id.nav_manage -> {
-
+            R.id.nav_settings -> {
+                Toast.makeText(applicationContext,"Settings Layout",Toast.LENGTH_SHORT).show()
             }
-            R.id.nav_share -> {
-
+            R.id.nav_sign -> {
+                Toast.makeText(applicationContext,"Sign Out Pop Up",Toast.LENGTH_SHORT).show()
             }
-            R.id.nav_send -> {
-
+            R.id.nav_exit -> {
+                Toast.makeText(applicationContext,"Exit Pop Up",Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_privacy -> {
+                Toast.makeText(applicationContext,"Privacy Policy",Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_about -> {
+                Toast.makeText(applicationContext,"About The Application",Toast.LENGTH_SHORT).show()
             }
         }
 
