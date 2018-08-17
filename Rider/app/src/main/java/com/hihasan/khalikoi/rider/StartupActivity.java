@@ -30,7 +30,7 @@ public class StartupActivity extends AppCompatActivity
 
     //Check connection Here
     //Here I need to check Login Status as well;
-    
+
     private void checkConnection()
     {
         if(isOnline())
