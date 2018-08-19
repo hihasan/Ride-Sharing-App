@@ -2,6 +2,7 @@ package com.hihasan.khalikoi.rider;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,14 +18,32 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.mapbox.android.core.location.LocationEngine;
+import com.mapbox.android.core.location.LocationEngineListener;
+import com.mapbox.android.core.permissions.PermissionsListener;
+import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.maps.MapView;
+import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerPlugin;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,
+        OnMapReadyCallback,LocationEngineListener,PermissionsListener {
 
     private Context context=this;
     private AppCompatButton fab_button,yes_signout,yes_exit,no_signout,no_exit;
+
+    //MapBox Value
     private MapView mapView;
+    private MapboxMap map;
+    private PermissionsManager permissionManager;
+    private LocationEngine locationEngine;
+    private LocationLayerPlugin locationLayerPlugin;
+    private Location originLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -246,4 +265,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    //OnMap Ready Callback
+    @Override
+    public void onMapReady(MapboxMap mapboxMap) {
+
+    }
+
+    //Location Engine Listener started
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+    //Location Engine Lisenter End Here
+    //Permission Listener Started
+    @Override
+    public void onExplanationNeeded(List<String> permissionsToExplain) {
+
+    }
+
+
+    @Override
+    public void onPermissionResult(boolean granted) {
+
+    }
+
+    /**
+     * Called when the map is ready to be used.
+     *
+     * @param mapboxMap An instance of MapboxMap associated with the {@link MapFragment} or
+     *                  {@link MapView} that defines the callback.
+     */
+
 }

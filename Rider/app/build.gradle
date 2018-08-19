@@ -38,6 +38,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.+'
     implementation 'com.android.support:design:27.+'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.4.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.5.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
     testImplementation 'junit:junit:4.12'
