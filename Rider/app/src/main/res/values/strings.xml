@@ -8,7 +8,7 @@
     <string name="action_settings">Settings</string>
 
     <!--Map Credentails-->
-    <string name="access_token" translatable="false">pk.eyJ1IjoiaGloYXNhbiIsImEiOiJjamt5bGJjc2owa21oM2twNHpveTl6dmViIn0.P-c22QlXEDcGUc7RC77m-Q</string>
+    <string name="access_token">pk.eyJ1IjoiaGloYXNhbiIsImEiOiJjamt5bGJjc2owa21oM2twNHpveTl6dmViIn0.P-c22QlXEDcGUc7RC77m-Q</string>
 
 
     <!--Default String-->

@@ -1,9 +1,11 @@
 package com.hihasan.khalikoi.rider;
-
+//
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -18,8 +20,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.LatLng;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineListener;
+import com.mapbox.android.core.location.LocationEnginePriority;
+import com.mapbox.android.core.location.LocationEngineProvider;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.mapboxsdk.Mapbox;
@@ -27,6 +33,8 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerPlugin;
+import com.mapbox.mapboxsdk.plugins.locationlayer.modes.CameraMode;
+import com.mapbox.mapboxsdk.plugins.locationlayer.modes.RenderMode;
 
 import java.util.List;
 
@@ -52,6 +60,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -77,10 +86,104 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    //MapView Library
+    //OnMap Ready Callback
     @Override
+    public void onMapReady(MapboxMap mapboxMap) {
+        map=mapboxMap;
+        enableLocation();
+    }
+
+
+
+    private void enableLocation(){
+        if (PermissionsManager.areLocationPermissionsGranted(this)){
+            //do something here later
+            initializeLocationEngine();
+            initializeLocationLayer();
+        }
+        else {
+            permissionManager=new PermissionsManager(this);
+            permissionManager.requestLocationPermissions(this);
+        }
+
+    }
+
+    @SuppressLint("MissingPermission")
+    private void initializeLocationEngine(){
+        locationEngine=new LocationEngineProvider(this).obtainBestLocationEngineAvailable();
+        locationEngine.setPriority(LocationEnginePriority.HIGH_ACCURACY);
+        locationEngine.activate();
+
+        Location lastLocation=locationEngine.getLastLocation();
+        if (lastLocation!=null){
+            originLocation=lastLocation;
+//            setCameraPosition(lastLocation);
+        }else{
+            locationEngine.addLocationEngineListener(this);
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private void initializeLocationLayer(){
+        locationLayerPlugin=new LocationLayerPlugin(mapView,map,locationEngine);
+        locationLayerPlugin.setLocationLayerEnabled(true);
+        locationLayerPlugin.setCameraMode(CameraMode.TRACKING);
+        locationLayerPlugin.setRenderMode(RenderMode.NORMAL);
+    }
+
+//    private void setCameraPosition(Location location){
+//        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),location.getLongitude()), 13.0));
+//    }
+
+    //Location Engine Listener started
+    @Override
+    @SuppressLint("MissingPermission")
+    public void onConnected() {
+        locationEngine.requestLocationUpdates();
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        if (location !=null){
+            originLocation=location;
+            //setCameraPosition(location);
+        }
+    }
+
+    //Location Engine Lisenter End Here
+    //Permission Listener Started
+    @Override
+    public void onExplanationNeeded(List<String> permissionsToExplain) {
+        //Ned to call why permission needed
+        Toast.makeText(getApplicationContext(),"Youneed permission To Open Maps ",Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    public void onPermissionResult(boolean granted) {
+        if (granted){
+            enableLocation();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        permissionManager.onRequestPermissionsResult(requestCode,permissions,grantResults);
+    }
+
+    //Android Activity Lifecycle
+    @Override
+    @SuppressWarnings("MissingPermission")
     public void onStart() {
         super.onStart();
+        if (locationEngine !=null){
+            locationEngine.requestLocationUpdates();
+        }
+
+        if (locationLayerPlugin !=null){
+            locationLayerPlugin.onStart();
+        }
         mapView.onStart();
     }
 
@@ -96,9 +199,17 @@ public class MainActivity extends AppCompatActivity
         mapView.onPause();
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     public void onStop() {
         super.onStop();
+        if (locationEngine!=null){
+            locationEngine.requestLocationUpdates();
+        }
+
+        if (locationLayerPlugin!=null){
+            locationLayerPlugin.onStop();
+        }
         mapView.onStop();
     }
 
@@ -111,6 +222,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (locationEngine !=null){
+            locationEngine.deactivate();
+        }
         mapView.onDestroy();
     }
 
@@ -266,41 +380,5 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    //OnMap Ready Callback
-    @Override
-    public void onMapReady(MapboxMap mapboxMap) {
-
-    }
-
-    //Location Engine Listener started
-    @Override
-    public void onConnected() {
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-
-    }
-
-    //Location Engine Lisenter End Here
-    //Permission Listener Started
-    @Override
-    public void onExplanationNeeded(List<String> permissionsToExplain) {
-
-    }
-
-
-    @Override
-    public void onPermissionResult(boolean granted) {
-
-    }
-
-    /**
-     * Called when the map is ready to be used.
-     *
-     * @param mapboxMap An instance of MapboxMap associated with the {@link MapFragment} or
-     *                  {@link MapView} that defines the callback.
-     */
 
 }
