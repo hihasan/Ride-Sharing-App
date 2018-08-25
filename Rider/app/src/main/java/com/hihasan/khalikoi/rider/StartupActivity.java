@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Handler;
 import android.widget.Toast;
 
+import com.hihasan.khalikoi.rider.signin.SignInMain;
+
 public class StartupActivity extends AppCompatActivity
 {
     public final int APP_LOADING_TIME=3000;
@@ -36,7 +38,7 @@ public class StartupActivity extends AppCompatActivity
         if(isOnline())
         {
             Toast.makeText(getApplicationContext(), "You are connected to Internet", Toast.LENGTH_SHORT).show();
-            final Intent mainIntent = new Intent(StartupActivity.this, MainActivity.class);
+            final Intent mainIntent = new Intent(StartupActivity.this, SignInMain.class);
             StartupActivity.this.startActivity(mainIntent);
             StartupActivity.this.finish();
 
