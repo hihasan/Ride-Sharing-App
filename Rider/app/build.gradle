@@ -24,6 +24,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets { debug { res.srcDirs = ['src/debug/res', 'src/debug/res/anim'] } }
 }
 
 //repositories {
