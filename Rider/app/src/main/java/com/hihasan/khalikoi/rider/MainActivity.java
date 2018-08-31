@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity
                         Toast.makeText(getApplicationContext(),"You want to Travel from: "
                                 +current_location.getText()+"\n To: "
                                 +destination.getText()+". Thanks for Travel with Us.",Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
                     }
                 });
 
