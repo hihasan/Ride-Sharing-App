@@ -40,6 +40,12 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".signin.SignInMain"/>
 
+        <!--HELP-->
+        <activity android:name=".help.Help"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".help.ChatActivity"
+            android:parentActivityName=".MainActivity"/>
+
     </application>
 
 </manifest>
