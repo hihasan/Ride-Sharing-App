@@ -14,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity
     private LocationEngine locationEngine;
     private LocationLayerPlugin locationLayerPlugin;
     private Location originLocation;
+    private AppCompatEditText current_location, destination;
+    private AppCompatButton submit_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +72,27 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.activity_search_route);
+//                dialog.setTitle("Title...");
+
+                current_location=(AppCompatEditText) dialog.findViewById(R.id.your_location);
+                destination=(AppCompatEditText) dialog.findViewById(R.id.your_destination);
+
+
+                submit_search=(AppCompatButton)  dialog.findViewById(R.id.submit_search);
+                submit_search.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(),"You want to Travel from: "
+                                +current_location.getText()+"\n To: "
+                                +destination.getText()+". Thanks for Travel with Us.",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.show();
             }
         });
 

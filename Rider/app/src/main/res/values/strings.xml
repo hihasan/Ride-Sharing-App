@@ -16,4 +16,10 @@
     <string name="sign_out">Do You Want To Sign Out? </string>
     <string name="exit">Do You Want To Exit? </string>
     <string name="title_activity_maps">Map</string>
+
+    <!--layout String-->
+    <string name="search_txt">Search Your Destination</string>
+    <string name="your_location">Your Current Location</string>
+    <string name="your_destination">Your Destination</string>
+    <string name="search_driver">Search Your Driver</string>
 </resources>

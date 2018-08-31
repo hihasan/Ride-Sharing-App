@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8sp"
+    android:padding="8sp">
+
+    <TextView
+        android:id="@+id/search_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_txt"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8sp"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/your_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_txt"
+        android:layout_margin="8sp"
+        android:hint="@string/your_location" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/your_destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/your_location"
+        android:hint="@string/your_destination"
+        android:layout_margin="8sp"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/submit_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/your_destination"
+        android:layout_margin="8sp"
+        android:backgroundTint="@color/navbar"
+        android:text="@string/search_driver"
+        android:textColor="@android:color/white"/>
+
+</RelativeLayout>
