@@ -3,6 +3,7 @@ package com.hihasan.khalikoi.rider;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,8 +22,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
+import com.hihasan.khalikoi.rider.help.Help;
+import com.hihasan.khalikoi.rider.settings.Settings;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineListener;
 import com.mapbox.android.core.location.LocationEnginePriority;
@@ -302,6 +303,9 @@ public class MainActivity extends AppCompatActivity
 
         //Help Details
         else if (id == R.id.nav_help) {
+            Toast.makeText(getApplicationContext(),"This will Open Chatbox",Toast.LENGTH_SHORT).show();
+            Intent i=new Intent(MainActivity.this, Help.class);
+            startActivity(i);
 
         }
 
@@ -312,6 +316,9 @@ public class MainActivity extends AppCompatActivity
 
         //Settings Details
         else if (id == R.id.nav_settings) {
+            Toast.makeText(getApplicationContext(),"This Will Open Settings",Toast.LENGTH_SHORT).show();
+            Intent i=new Intent(MainActivity.this, Settings.class);
+            startActivity(i);
 
         }
 
