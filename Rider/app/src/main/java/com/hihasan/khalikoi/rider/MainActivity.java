@@ -325,20 +325,21 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.nav_exit) {
 
             final Dialog dialog = new Dialog(context);
-            dialog.setContentView(R.layout.activity_about_us);
+            dialog.setContentView(R.layout.activity_exit);
             dialog.setTitle("Title....");
 
             yes_exit=(AppCompatButton) dialog.findViewById (R.id.yes);
             no_exit=(AppCompatButton) dialog.findViewById (R.id.no);
 
-            yes_signout.setOnClickListener(new View.OnClickListener() {
+            yes_exit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    //need to Work on Here
                     System.exit(0);
                 }
             });
 
-            no_signout.setOnClickListener(new View.OnClickListener() {
+            no_exit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(getApplicationContext(),"No it will not Sign Out", Toast.LENGTH_SHORT).show();
