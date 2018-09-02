@@ -27,4 +27,12 @@
     <!--Settings Strings-->
     <string name="language">Select Your Language: </string>
     <string name="unit">Select To Count Detination: </string>
+    <string-array name="language_options">
+        <item>English</item>
+        <item>Bangla</item>
+    </string-array>
+    <string-array name="unit_options">
+        <item>K.M</item>
+        <item>Miles</item>
+    </string-array>
 </resources>
