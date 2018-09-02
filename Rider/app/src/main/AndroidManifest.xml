@@ -48,6 +48,7 @@
 
         <!--Settings-->
         <activity android:name=".settings.Settings"
+
             android:parentActivityName=".MainActivity"/>
 
 

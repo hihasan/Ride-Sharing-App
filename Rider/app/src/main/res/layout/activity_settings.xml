@@ -44,4 +44,16 @@
             android:layout_marginLeft="16sp"/>
     </RelativeLayout>
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/submit_settings"
+        android:layout_width="128sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/layout2"
+        android:layout_marginTop="8sp"
+        android:layout_marginRight="16sp"
+        android:text="Save"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_green_light"/>
+
 </RelativeLayout>
