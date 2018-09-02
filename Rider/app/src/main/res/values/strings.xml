@@ -22,4 +22,9 @@
     <string name="your_location">Your Current Location</string>
     <string name="your_destination">Your Destination</string>
     <string name="search_driver">Search Your Driver</string>
+
+
+    <!--Settings Strings-->
+    <string name="language">Select Your Language: </string>
+    <string name="unit">Select To Count Detination: </string>
 </resources>
