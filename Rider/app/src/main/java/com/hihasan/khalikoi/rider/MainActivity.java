@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -81,32 +82,23 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//                final Dialog dialog = new Dialog(context);
-//                dialog.setContentView(R.layout.activity_search_route);
-////                dialog.setTitle("Title...");
-//
-//                current_location=(AppCompatEditText) dialog.findViewById(R.id.your_location);
-//                destination=(AppCompatEditText) dialog.findViewById(R.id.your_destination);
-//
-//
-//                submit_search=(AppCompatButton)  dialog.findViewById(R.id.submit_search);
-//                submit_search.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Toast.makeText(getApplicationContext(),"You want to Travel from: "
-//                                +current_location.getText()+"\n To: "
-//                                +destination.getText()+". Thanks for Travel with Us.",Toast.LENGTH_SHORT).show();
-//                        dialog.dismiss();
-//                    }
-//                });
-//
-//                dialog.show();
+
+                if (destinationMarker !=null){
+                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+
+                    //Methods Will be implemented Here
+
+                }
+
+                else {
+                    Toast.makeText(getApplicationContext(),"Please Select The Destination",Toast.LENGTH_SHORT).show();
+                }
+
                 //I WIll Develop it latter
 
             }
@@ -187,6 +179,10 @@ public class MainActivity extends AppCompatActivity
         destinationPosition=Point.fromLngLat(point.getLongitude(),point.getLatitude());
         originPosition=Point.fromLngLat(originLocation.getLongitude(), originLocation.getLatitude());
 
+        //Wrong Code
+//        CoordinatorLayout.LayoutParams p=(CoordinatorLayout.LayoutParams) fab_button.getLayoutParams();
+//        p.setAnchorId(R.id.fab);
+//        fab_button.setLayoutParams(p);
 //        fab_button.setVisibility(View.VISIBLE);
 
     }
