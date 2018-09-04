@@ -177,6 +177,11 @@ public class MainActivity extends AppCompatActivity
     //OnMap Click Function
     @Override
     public void onMapClick(@NonNull LatLng point) {
+
+        if (destinationMarker !=null){
+            map.removeMarker(destinationMarker);
+        }
+        //Here  I can Change Icon, I can add Title
         destinationMarker=map.addMarker(new MarkerOptions().position(point));
 
         destinationPosition=Point.fromLngLat(point.getLongitude(),point.getLatitude());
