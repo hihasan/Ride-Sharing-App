@@ -1,5 +1,5 @@
 package com.hihasan.khalikoi.rider;
-//
+
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
@@ -30,7 +30,11 @@ import com.mapbox.android.core.location.LocationEnginePriority;
 import com.mapbox.android.core.location.LocationEngineProvider;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
+import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.Marker;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
+import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
@@ -42,7 +46,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        OnMapReadyCallback,LocationEngineListener,PermissionsListener {
+        OnMapReadyCallback,LocationEngineListener,PermissionsListener,MapboxMap.OnMapClickListener {
 
     private Context context=this;
     private AppCompatButton fab_button,yes_signout,yes_exit,no_signout,no_exit;
@@ -57,6 +61,14 @@ public class MainActivity extends AppCompatActivity
     private AppCompatEditText current_location, destination;
     private AppCompatButton submit_search;
 
+    //Pointer Position
+    private Point originPosition;
+    private Point destinationPosition;
+    private Marker destinationMarker;
+
+    //Dummy Assets
+    private AppCompatButton startButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,32 +81,34 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-                final Dialog dialog = new Dialog(context);
-                dialog.setContentView(R.layout.activity_search_route);
-//                dialog.setTitle("Title...");
+//                final Dialog dialog = new Dialog(context);
+//                dialog.setContentView(R.layout.activity_search_route);
+////                dialog.setTitle("Title...");
+//
+//                current_location=(AppCompatEditText) dialog.findViewById(R.id.your_location);
+//                destination=(AppCompatEditText) dialog.findViewById(R.id.your_destination);
+//
+//
+//                submit_search=(AppCompatButton)  dialog.findViewById(R.id.submit_search);
+//                submit_search.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(getApplicationContext(),"You want to Travel from: "
+//                                +current_location.getText()+"\n To: "
+//                                +destination.getText()+". Thanks for Travel with Us.",Toast.LENGTH_SHORT).show();
+//                        dialog.dismiss();
+//                    }
+//                });
+//
+//                dialog.show();
+                //I WIll Develop it latter
 
-                current_location=(AppCompatEditText) dialog.findViewById(R.id.your_location);
-                destination=(AppCompatEditText) dialog.findViewById(R.id.your_destination);
-
-
-                submit_search=(AppCompatButton)  dialog.findViewById(R.id.submit_search);
-                submit_search.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(),"You want to Travel from: "
-                                +current_location.getText()+"\n To: "
-                                +destination.getText()+". Thanks for Travel with Us.",Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                    }
-                });
-
-                dialog.show();
             }
         });
 
@@ -114,6 +128,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onMapReady(MapboxMap mapboxMap) {
         map=mapboxMap;
+        map.addOnMapClickListener(this);
         enableLocation();
     }
 
@@ -158,6 +173,18 @@ public class MainActivity extends AppCompatActivity
 //    private void setCameraPosition(Location location){
 //        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),location.getLongitude()), 13.0));
 //    }
+
+    //OnMap Click Function
+    @Override
+    public void onMapClick(@NonNull LatLng point) {
+        destinationMarker=map.addMarker(new MarkerOptions().position(point));
+
+        destinationPosition=Point.fromLngLat(point.getLongitude(),point.getLatitude());
+        originPosition=Point.fromLngLat(originLocation.getLongitude(), originLocation.getLatitude());
+
+//        fab_button.setVisibility(View.VISIBLE);
+
+    }
 
     //Location Engine Listener started
     @Override
