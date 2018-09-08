@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +32,8 @@ import com.mapbox.android.core.location.LocationEnginePriority;
 import com.mapbox.android.core.location.LocationEngineProvider;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
+import com.mapbox.api.directions.v5.models.DirectionsResponse;
+import com.mapbox.api.directions.v5.models.DirectionsRoute;
 import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Marker;
@@ -42,8 +45,16 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.plugins.locationlayer.LocationLayerPlugin;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.CameraMode;
 import com.mapbox.mapboxsdk.plugins.locationlayer.modes.RenderMode;
+import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
+import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
+import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
+import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -66,6 +77,10 @@ public class MainActivity extends AppCompatActivity
     private Point originPosition;
     private Point destinationPosition;
     private Marker destinationMarker;
+
+    //Navigation Route Variables
+    private NavigationMapRoute navigationMapRoute;
+    private static final String TAG="MainActivity";
 
     //Dummy Assets
     private AppCompatButton startButton;
@@ -90,6 +105,14 @@ public class MainActivity extends AppCompatActivity
                 if (destinationMarker !=null){
                     Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+
+                    NavigationLauncherOptions options= NavigationLauncherOptions.builder()
+                            .origin(originPosition)
+                            .destination(destinationPosition)
+                            .shouldSimulateRoute(true)
+                            .build();
+
+                    NavigationLauncher.startNavigation(MainActivity.this,options);
 
                     //Methods Will be implemented Here
 
@@ -178,12 +201,53 @@ public class MainActivity extends AppCompatActivity
 
         destinationPosition=Point.fromLngLat(point.getLongitude(),point.getLatitude());
         originPosition=Point.fromLngLat(originLocation.getLongitude(), originLocation.getLatitude());
+        getRoute(originPosition,destinationPosition);
 
         //Wrong Code
 //        CoordinatorLayout.LayoutParams p=(CoordinatorLayout.LayoutParams) fab_button.getLayoutParams();
 //        p.setAnchorId(R.id.fab);
 //        fab_button.setLayoutParams(p);
 //        fab_button.setVisibility(View.VISIBLE);
+
+    }
+
+    //function to get our route
+    private void getRoute(Point origin, Point destination){
+        NavigationRoute.builder()
+                .accessToken(Mapbox.getAccessToken())
+                .origin(origin)
+                .destination(destination)
+                .build()
+                .getRoute(new Callback<DirectionsResponse>() {
+                    @Override
+                    public void onResponse(Call<DirectionsResponse> call, Response<DirectionsResponse> response) {
+                        if (response.body()==null){
+                            Log.e(TAG,"No Routes Found, Check users & Access Token");
+                            return;
+                        }
+
+                        else if (response.body().routes().size()==0){
+                            Log.e(TAG,"No Routes Found");
+                            Toast.makeText(getApplicationContext(),"No Route Found",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        DirectionsRoute currentRoute=response.body().routes().get(0);
+
+                        if (navigationMapRoute !=null){
+                            navigationMapRoute.removeRoute();
+                        }else{
+                            navigationMapRoute=new NavigationMapRoute(null,mapView,map);
+                        }
+
+                        navigationMapRoute.addRoute(currentRoute);
+                    }
+
+                    @Override
+                    public void onFailure(Call<DirectionsResponse> call, Throwable t) {
+                        Log.e(TAG,"ERROR: "+t.getMessage());
+                    }
+                });
 
     }
 
