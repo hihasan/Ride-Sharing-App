@@ -24,11 +24,11 @@ public class SignupMain extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        input_name=(EditText) findViewById (R.id.input_name);
-        input_password=(EditText) findViewById (R.id.input_password);
-        input_phone=(EditText) findViewById (R.id.input_phone);
+        input_name= findViewById (R.id.input_name);
+        input_password= findViewById (R.id.input_password);
+        input_phone= findViewById (R.id.input_phone);
 
-        link_login=(TextView) findViewById (R.id.link_login);
+        link_login= findViewById (R.id.link_login);
         link_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +37,7 @@ public class SignupMain extends AppCompatActivity
             }
         });
 
-        btn_signup=(AppCompatButton) findViewById (R.id.btn_signup);
+        btn_signup= findViewById (R.id.btn_signup);
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

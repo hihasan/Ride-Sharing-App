@@ -26,12 +26,12 @@ public class SignInMain extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
-        phone=(EditText) findViewById (R.id.input_phone);
-        password=(EditText) findViewById (R.id.input_password);
+        phone= findViewById (R.id.input_phone);
+        password= findViewById (R.id.input_password);
 
-        link_signup=(TextView) findViewById (R.id.link_signup);
+        link_signup= findViewById (R.id.link_signup);
 
-        submit=(AppCompatButton) findViewById (R.id.btn_login);
+        submit= findViewById (R.id.btn_login);
 
         link_signup.setOnClickListener(new View.OnClickListener() {
             @Override

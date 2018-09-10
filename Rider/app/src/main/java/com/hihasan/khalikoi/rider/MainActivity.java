@@ -90,14 +90,14 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, "pk.eyJ1IjoiaGloYXNhbiIsImEiOiJjamt5bGJjc2owa21oM2twNHpveTl6dmViIn0.P-c22QlXEDcGUc7RC77m-Q");
         setContentView(R.layout.activity_main);
-        mapView = (MapView) findViewById(R.id.mapView);
+        mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,13 +128,13 @@ public class MainActivity extends AppCompatActivity
         });
 
         //Drawer Layout
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
     }
@@ -352,7 +352,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -420,8 +420,8 @@ public class MainActivity extends AppCompatActivity
             dialog.setContentView(R.layout.activity_signout);
             dialog.setTitle("Title....");
 
-            yes_signout=(AppCompatButton) dialog.findViewById (R.id.yes);
-            no_signout=(AppCompatButton) dialog.findViewById (R.id.no);
+            yes_signout= dialog.findViewById (R.id.yes);
+            no_signout= dialog.findViewById (R.id.no);
 
             yes_signout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -450,8 +450,8 @@ public class MainActivity extends AppCompatActivity
             dialog.setContentView(R.layout.activity_exit);
             dialog.setTitle("Title....");
 
-            yes_exit=(AppCompatButton) dialog.findViewById (R.id.yes);
-            no_exit=(AppCompatButton) dialog.findViewById (R.id.no);
+            yes_exit= dialog.findViewById (R.id.yes);
+            no_exit= dialog.findViewById (R.id.no);
 
             yes_exit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -484,7 +484,7 @@ public class MainActivity extends AppCompatActivity
             dialog.setTitle("Title...");
 
 
-            fab_button = (AppCompatButton) dialog.findViewById(R.id.close);
+            fab_button = dialog.findViewById(R.id.close);
             fab_button.setOnClickListener(new View.OnClickListener()
             {
                 @Override
@@ -498,7 +498,7 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

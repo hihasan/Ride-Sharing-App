@@ -61,8 +61,7 @@
             android:padding="12dp"
             android:background="@android:color/holo_green_light"
             android:textColor="@android:color/white"
-            android:text="Login"
-            android:onClick="checkLogin"/>
+            android:text="Login" />
 
         <TextView android:id="@+id/link_signup"
             android:layout_width="fill_parent"
