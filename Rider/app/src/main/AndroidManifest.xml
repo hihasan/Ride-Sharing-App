@@ -28,6 +28,14 @@
         <activity
             android:name=".NoInternet"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!--Profile-->
+        <activity android:name=".user.profile.ProfileMain"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="Profile"/>
+        <activity android:name=".user.profile.ProfileEdit"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="Edit Profile"/>
         <!--<activity-->
             <!--android:name=".MainActivity"-->
             <!--android:theme="@style/AppTheme.NoActionBar" />-->

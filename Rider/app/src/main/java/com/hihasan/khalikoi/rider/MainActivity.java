@@ -22,10 +22,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hihasan.khalikoi.rider.help.Help;
 import com.hihasan.khalikoi.rider.settings.Settings;
+import com.hihasan.khalikoi.rider.user.profile.ProfileMain;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineListener;
 import com.mapbox.android.core.location.LocationEnginePriority;
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity
 
     private Context context=this;
     private AppCompatButton fab_button,yes_signout,yes_exit,no_signout,no_exit;
+    private TextView edit_profile;
 
     //MapBox Value
     private MapView mapView;
@@ -93,6 +96,15 @@ public class MainActivity extends AppCompatActivity
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
+
+        edit_profile=(TextView) findViewById (R.id.edit_profile);
+        edit_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent n=new Intent(MainActivity.this, ProfileMain.class);
+                startActivity(n);
+            }
+        });
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
