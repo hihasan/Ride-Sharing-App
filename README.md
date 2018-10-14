@@ -40,3 +40,6 @@ Driver Features:
 
 
 *** I want to add an extra feature that is not present in pathaw and uber, that is multiple user can request to a rider, like when a user send request for a ride and if he/she  booked the whole CNG then no other user cant request that CNG but if the existing user doesn't booked the whole CNG then other user also can send a request to that CNG(then fare will be divided among them). Maximum two user can share a CNG.
+
+
+-check
