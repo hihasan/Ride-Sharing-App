@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Bachaw</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_profile"><u>View profile</u></string>
+
+    <!--Map Credentails-->
+    <string name="access_token">pk.eyJ1IjoiaGloYXNhbiIsImEiOiJjamt5bGJjc2owa21oM2twNHpveTl6dmViIn0.P-c22QlXEDcGUc7RC77m-Q</string>
+
+
+    <!--Default String-->
+    <string name="emo_txt">Check your Internet Connection</string>
+    <string name="sign_out">Do You Want To Sign Out? </string>
+    <string name="exit">Do You Want To Exit? </string>
+    <string name="title_activity_maps">Map</string>
+
+    <!--layout String-->
+    <string name="search_txt">Search Your Destination</string>
+    <string name="your_location">Your Current Location</string>
+    <string name="your_destination">Your Destination</string>
+    <string name="search_driver">Search Your Driver</string>
+
+
+    <!--Settings Strings-->
+    <string name="language">Select Your Language: </string>
+    <string name="unit">Select To Count Detination: </string>
+    <string-array name="language_options">
+        <item>English</item>
+        <item>Bangla</item>
+    </string-array>
+    <string-array name="unit_options">
+        <item>K.M</item>
+        <item>Miles</item>
+    </string-array>
+</resources>
