@@ -97,14 +97,14 @@ public class MainActivity extends AppCompatActivity
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-        edit_profile=(TextView) findViewById (R.id.edit_profile);
-        edit_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent n=new Intent(MainActivity.this, ProfileMain.class);
-                startActivity(n);
-            }
-        });
+//        edit_profile=(TextView) findViewById (R.id.edit_profile);
+//        edit_profile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent n=new Intent(MainActivity.this, ProfileMain.class);
+//                startActivity(n);
+//            }
+//        });
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

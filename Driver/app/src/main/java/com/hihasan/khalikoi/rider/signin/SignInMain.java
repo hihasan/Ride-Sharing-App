@@ -29,18 +29,18 @@ public class SignInMain extends AppCompatActivity
         phone= findViewById (R.id.input_phone);
         password= findViewById (R.id.input_password);
 
-        link_signup= findViewById (R.id.link_signup);
+//        link_signup= findViewById (R.id.link_signup);
 
         submit= findViewById (R.id.btn_login);
 
-        link_signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Correct Username & Password",Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(SignInMain.this, SignupMain.class);
-                startActivity(i);
-            }
-        });
+//        link_signup.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(),"Correct Username & Password",Toast.LENGTH_SHORT).show();
+//                Intent i=new Intent(SignInMain.this, SignupMain.class);
+//                startActivity(i);
+//            }
+//        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
