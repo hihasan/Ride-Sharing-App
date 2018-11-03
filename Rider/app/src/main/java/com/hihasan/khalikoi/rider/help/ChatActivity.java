@@ -45,7 +45,7 @@ public class ChatActivity extends AppCompatActivity
         adapter = new MessageAdapter(this, R.layout.item_chat_left, chatMessages);
         listView.setAdapter(adapter);
 
-        final AIConfiguration config = new AIConfiguration("8eddf4e5e6284f8185d4936a9a5e4242",
+        final AIConfiguration config = new AIConfiguration("84a632b0771947ad8e24e3eeea2502ba",
                 AIConfiguration.SupportedLanguages.English,
                 AIConfiguration.RecognitionEngine.System);
 
