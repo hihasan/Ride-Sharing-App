@@ -97,14 +97,7 @@ public class MainActivity extends AppCompatActivity
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-//        edit_profile=(TextView) findViewById (R.id.edit_profile);
-//        edit_profile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent n=new Intent(MainActivity.this, ProfileMain.class);
-//                startActivity(n);
-//            }
-//        });
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -138,6 +131,15 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+
+//        edit_profile=(TextView) findViewById (R.id.edit_profile);
+//        edit_profile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent n=new Intent(MainActivity.this, ProfileMain.class);
+//                startActivity(n);
+//            }
+//        });
 
         //Drawer Layout
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -400,8 +402,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        if (id == R.id.nav_profile){
+            Intent i=new Intent(MainActivity.this, ProfileMain.class);
+            startActivity(i);
+        }
+
         //Trips Details
-        if (id == R.id.nav_trips) {
+        else if (id == R.id.nav_trips) {
             // Handle the camera action
         }
 
