@@ -32,11 +32,11 @@ public class Help extends AppCompatActivity implements AIListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
-        listenButton = (Button) findViewById(R.id.listen);
-        chat = (Button) findViewById(R.id.chat);
-        resultTextView = (TextView) findViewById(R.id.result);
+        listenButton = findViewById(R.id.listen);
+        chat = findViewById(R.id.chat);
+        resultTextView = findViewById(R.id.result);
 // ab5acd11f35b41ac8e1e969694d9a732
-        final AIConfiguration aiConfiguration = new AIConfiguration("8eddf4e5e6284f8185d4936a9a5e4242", AIConfiguration.SupportedLanguages.English, AIConfiguration.RecognitionEngine.System);
+        final AIConfiguration aiConfiguration = new AIConfiguration("84a632b0771947ad8e24e3eeea2502ba", AIConfiguration.SupportedLanguages.English, AIConfiguration.RecognitionEngine.System);
 
         aiService = AIService.getService(this, aiConfiguration);
         aiService.setListener(this);

@@ -25,7 +25,7 @@ public class StartupActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup);
 
-        logo=(ImageView) findViewById (R.id.logo);
+        logo= findViewById (R.id.logo);
         logoAnimation();
         //Thread Handler for 5 sec.
         new Handler().postDelayed(new Runnable() {
@@ -71,10 +71,6 @@ public class StartupActivity extends AppCompatActivity
     protected boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
-        } else {
-            return false;
-        }
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 }

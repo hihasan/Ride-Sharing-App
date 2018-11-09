@@ -69,7 +69,7 @@ public class MessageAdapter extends ArrayAdapter<ChatMessage>
         private TextView msg;
 
         public ViewHolder(View v) {
-            msg = (TextView) v.findViewById(R.id.txt_msg);
+            msg = v.findViewById(R.id.txt_msg);
         }
     }
 }

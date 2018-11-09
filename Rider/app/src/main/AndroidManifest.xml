@@ -28,9 +28,16 @@
         <activity
             android:name=".NoInternet"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--<activity-->
-            <!--android:name=".MainActivity"-->
-            <!--android:theme="@style/AppTheme.NoActionBar" />-->
+
+        <!--Profile-->
+        <activity android:name=".user.profile.ProfileMain"
+            android:label="Your Profile"/>
+        <activity android:name=".user.profile.ProfileEdit"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="Edit Profile"/>
+        <activity
+            android:name=".StartupActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Sign in & Up -->
         <activity

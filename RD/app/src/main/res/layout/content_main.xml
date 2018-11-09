@@ -10,47 +10,10 @@
     tools:showIn="@layout/activity_main"
     android:background="@drawable/mujib_background">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="128sp"
-            android:layout_height="128sp"
-            android:src="@drawable/c_logo"
-            android:layout_centerHorizontal="true" />
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/b1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/logo"
-            android:layout_margin="16sp"
-            android:background="@android:color/holo_green_light"
-            android:text="@string/b1"
-            android:textColor="@android:color/white"/>
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/b2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/b1"
-            android:layout_margin="16sp"
-            android:background="@android:color/holo_green_light"
-            android:text="@string/b2"
-            android:textColor="@android:color/white"/>
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/b3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/b2"
-            android:layout_margin="16sp"
-            android:background="@android:color/holo_green_light"
-            android:text="@string/b3"
-            android:textColor="@android:color/white"/>
-    </RelativeLayout>
+    <WebView
+    android:id="@+id/webView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"/>
 
 
 

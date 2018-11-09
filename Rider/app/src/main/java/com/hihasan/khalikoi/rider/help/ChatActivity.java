@@ -37,15 +37,15 @@ public class ChatActivity extends AppCompatActivity
 
         chatMessages = new ArrayList<>();
 
-        listView = (ListView) findViewById(R.id.list_msg);
+        listView = findViewById(R.id.list_msg);
         btnSend = findViewById(R.id.btn_chat_send);
-        editText = (EditText) findViewById(R.id.msg_type);
+        editText = findViewById(R.id.msg_type);
 
         //set ListView adapter first
         adapter = new MessageAdapter(this, R.layout.item_chat_left, chatMessages);
         listView.setAdapter(adapter);
 
-        final AIConfiguration config = new AIConfiguration("8eddf4e5e6284f8185d4936a9a5e4242",
+        final AIConfiguration config = new AIConfiguration("84a632b0771947ad8e24e3eeea2502ba",
                 AIConfiguration.SupportedLanguages.English,
                 AIConfiguration.RecognitionEngine.System);
 
@@ -64,12 +64,7 @@ public class ChatActivity extends AppCompatActivity
                     chatMessages.add(chatMessage);
                     adapter.notifyDataSetChanged();
                     editText.setText("");
-                    if (isMine) {
-                        isMine = false;
-                    }
-                    else {
-                        isMine = true;
-                    }
+                    isMine = !isMine;
 
                     final AIRequest aiRequest = new AIRequest();
                     aiRequest.setQuery(msg);
