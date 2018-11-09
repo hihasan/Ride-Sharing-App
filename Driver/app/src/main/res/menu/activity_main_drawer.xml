@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Profile"/>
+        <item
             android:id="@+id/nav_trips"
             android:icon="@drawable/ic_menu_camera"
             android:title="Your Trips " />
@@ -15,7 +19,7 @@
         <item
             android:id="@+id/nav_payment"
             android:icon="@drawable/payment"
-            android:title="Accounts" />
+            android:title="Payment History" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_manage"

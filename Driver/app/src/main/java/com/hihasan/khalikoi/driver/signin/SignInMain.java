@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.hihasan.khalikoi.driver.MainActivity;
 import com.hihasan.khalikoi.driver.R;
-import com.hihasan.khalikoi.driver.signup.SignupMain;
 
 import org.w3c.dom.Text;
 
