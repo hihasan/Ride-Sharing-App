@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hihasan.khalikoi.driver.MainActivity;
+import com.hihasan.khalikoi.driver.MenuActivity;
 import com.hihasan.khalikoi.driver.R;
 
 import org.w3c.dom.Text;
@@ -47,7 +48,7 @@ public class SignInMain extends AppCompatActivity
                 if (phone.getText().toString().equalsIgnoreCase("017") &&
                         password.getText().toString().equalsIgnoreCase("1234"))
                 {
-                    Intent i=new Intent(SignInMain.this, MainActivity.class);
+                    Intent i=new Intent(SignInMain.this, MenuActivity.class);
                     startActivity(i);
                 }
 
