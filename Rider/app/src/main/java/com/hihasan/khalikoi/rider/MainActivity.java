@@ -52,6 +52,8 @@ import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         OnMapReadyCallback,LocationEngineListener,PermissionsListener,MapboxMap.OnMapClickListener {
 
+    double dis;
     private Context context=this;
     private AppCompatButton fab_button,yes_signout,yes_exit,no_signout,no_exit;
     private TextView edit_profile;
@@ -106,26 +109,55 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (destinationMarker !=null){
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-
-                    NavigationLauncherOptions options= NavigationLauncherOptions.builder()
-                            .origin(originPosition)
-                            .destination(destinationPosition)
-                            .shouldSimulateRoute(true)
-                            .build();
-
-                    NavigationLauncher.startNavigation(MainActivity.this,options);
-
-                    //Methods Will be implemented Here
-
+                if (destinationMarker==null){
+                    Toast.makeText(getApplicationContext(),"please select destination", Toast.LENGTH_SHORT).show();
                 }
-
                 else {
-                    Toast.makeText(getApplicationContext(),"Please Select The Destination",Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(MainActivity.this, PriceList.class);
+                    startActivity(i);
                 }
+
+
+//
+
+
+               // }
+
+               // m=originLocation.
+
+//                final Dialog dialog = new Dialog(context);
+//                dialog.setContentView(R.layout.activity_custom);
+//                dialog.setTitle("Title...");
+//
+//                AppCompatButton cancel=(AppCompatButton) findViewById (R.id.cancel);
+//                cancel.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        dialog.dismiss();
+//                    }
+//                });
+
+               // dialog.show();
+
+//                if (destinationMarker !=null){
+//                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                            .setAction("Action", null).show();
+//
+//                    NavigationLauncherOptions options= NavigationLauncherOptions.builder()
+//                            .origin(originPosition)
+//                            .destination(destinationPosition)
+//                            .shouldSimulateRoute(true)
+//                            .build();
+//
+//                    NavigationLauncher.startNavigation(MainActivity.this,options);
+//
+//                    //Methods Will be implemented Here
+//
+//                }
+//
+//                else {
+//                    Toast.makeText(getApplicationContext(),"Please Select The Destination",Toast.LENGTH_SHORT).show();
+//                }
 
                 //I WIll Develop it latter
 
@@ -213,9 +245,17 @@ public class MainActivity extends AppCompatActivity
         //Here  I can Change Icon, I can add Title
         destinationMarker=map.addMarker(new MarkerOptions().position(point));
 
-        destinationPosition=Point.fromLngLat(point.getLongitude(),point.getLatitude());
+        destinationPosition=Point.fromLngLat(originLocation.getLongitude(),point.getLatitude());
         originPosition=Point.fromLngLat(originLocation.getLongitude(), originLocation.getLatitude());
         getRoute(originPosition,destinationPosition);
+//        double x1=originLocation.getLongitude();
+//        double x2=point.getLongitude();
+//        double y1=originLocation.getLatitude();
+//        double y2=point.getLatitude();
+//        double equ1= x1-x2;
+//        double equ2=y1-y2;
+//        double equ=equ1*equ1+equ2*equ2;
+//        dis=Math.sqrt(equ);
 
         //Wrong Code
 //        CoordinatorLayout.LayoutParams p=(CoordinatorLayout.LayoutParams) fab_button.getLayoutParams();
@@ -521,6 +561,8 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 
 
 }

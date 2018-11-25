@@ -29,7 +29,7 @@ import java.util.List;
 
 public class SignupMain extends AppCompatActivity
 {
-    String ServerURL = "http://bachaw.com/api/rider_signup_api.php" ;
+    String ServerURL = "http://bachaw.com/api_update/rider_signup_api.php" ;
     EditText username, email,password ;
     TextView login;
     AppCompatButton button;

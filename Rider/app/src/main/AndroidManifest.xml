@@ -35,9 +35,9 @@
         <activity android:name=".user.profile.ProfileEdit"
             android:theme="@style/AppTheme.NoActionBar"
             android:label="Edit Profile"/>
-        <activity
-            android:name=".StartupActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <!--<activity-->
+            <!--android:name=".MainActivity"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
 
         <!-- Sign in & Up -->
         <activity
@@ -55,7 +55,8 @@
 
         <!--Settings-->
         <activity android:name=".settings.Settings"
-
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".PriceList"
             android:parentActivityName=".MainActivity"/>
 
 

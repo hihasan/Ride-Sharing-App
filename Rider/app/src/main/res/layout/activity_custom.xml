@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15sp">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/single"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="32dp">
+        <RelativeLayout
+            android:id="@+id/single_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/single_img"
+                android:layout_width="64sp"
+                android:layout_height="64sp"
+                android:src="@drawable/single"/>
+            <TextView
+                android:id="@+id/single_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/single_img"
+                android:text="Single Ride"
+                android:layout_marginLeft="8sp"
+                android:layout_marginTop="8sp"/>
+            <TextView
+                android:id="@+id/single_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/single_img"
+                android:text="0"
+                android:layout_below="@+id/single_txt"
+                android:layout_marginLeft="8sp"
+                android:layout_marginTop="8sp"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/shared"
+        android:layout_below="@+id/single"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="32dp">
+        <RelativeLayout
+            android:id="@+id/shared_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/shared_img"
+                android:layout_width="64sp"
+                android:layout_height="64sp"
+                android:src="@drawable/shared"/>
+            <TextView
+                android:id="@+id/shared_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/shared_img"
+                android:text="Shared Ride"
+                android:layout_marginLeft="8sp"
+                android:layout_marginTop="8sp"/>
+            <TextView
+                android:id="@+id/shared_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/shared_img"
+                android:text="Single Price"
+                android:layout_below="@+id/shared_txt"
+                android:layout_marginLeft="8sp"
+                android:layout_marginTop="8sp"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/parcel"
+        android:layout_below="@+id/shared"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="32dp">
+        <RelativeLayout
+            android:id="@+id/parcel_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/parcel_img"
+                android:layout_width="64sp"
+                android:layout_height="64sp"
+                android:src="@drawable/parcel"/>
+            <TextView
+                android:id="@+id/parcel_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/parcel_img"
+                android:text="Parcel"
+                android:layout_marginLeft="8sp"
+                android:layout_marginTop="8sp"/>
+            <TextView
+                android:id="@+id/parcel_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/parcel_img"
+                android:text="Parcel Price"
+                android:layout_below="@+id/parcel_txt"
+                android:layout_marginLeft="8sp"
+                android:layout_marginTop="8sp"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/parcel"
+        android:layout_marginLeft="32sp"
+        android:layout_marginRight="32sp"
+        android:background="@android:color/holo_red_light"
+        android:text="Cancel"
+        android:textColor="@android:color/white"/>
+
+</RelativeLayout>
