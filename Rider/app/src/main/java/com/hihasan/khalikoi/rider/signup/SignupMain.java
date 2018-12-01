@@ -1,18 +1,20 @@
 package com.hihasan.khalikoi.rider.signup;
 
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.hihasan.khalikoi.rider.R;
 import com.hihasan.khalikoi.rider.signin.SignInMain;
+
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -27,9 +29,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class SignupMain extends AppCompatActivity
 {
-    String ServerURL = "http://bachaw.com/api_update/rider_signup_api.php" ;
+    String ServerURL = "http://bachaw.com/api/rider_signup_api.php" ;
     EditText username, email,password ;
     TextView login;
     AppCompatButton button;
@@ -72,9 +75,11 @@ public class SignupMain extends AppCompatActivity
     public void GetData(){
 
         TempName = username.getText().toString();
-
+        System.out.println(TempName);
         TempEmail = email.getText().toString();
+        System.out.println(TempEmail);
         TempPassword = password.getText().toString();
+        System.out.println(TempPassword);
 
     }
 

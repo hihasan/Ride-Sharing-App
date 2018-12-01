@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".StartupActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -31,13 +31,16 @@
 
         <!--Profile-->
         <activity android:name=".user.profile.ProfileMain"
-            android:label="Your Profile"/>
+            android:label="Your Profile"
+            android:parentActivityName=".MainActivity"/>
+
         <activity android:name=".user.profile.ProfileEdit"
             android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=""
             android:label="Edit Profile"/>
-        <!--<activity-->
-            <!--android:name=".MainActivity"-->
-            <!--android:theme="@style/AppTheme.NoActionBar" />-->
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Sign in & Up -->
         <activity
@@ -58,6 +61,14 @@
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".PriceList"
             android:parentActivityName=".MainActivity"/>
+
+        <!--confirm-->
+        <activity android:name=".confirm.Single"
+            android:label="Confirm"/>
+        <activity android:name=".confirm.Shared"
+            android:label="Confirm"/>
+        <activity android:name=".confirm.Parcel"
+            android:label="Confirm"/>
 
 
     </application>

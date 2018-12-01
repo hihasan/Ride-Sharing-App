@@ -1,5 +1,6 @@
 package com.hihasan.khalikoi.rider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +9,18 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hihasan.khalikoi.rider.confirm.Parcel;
+import com.hihasan.khalikoi.rider.confirm.Shared;
+import com.hihasan.khalikoi.rider.confirm.Single;
+import com.hihasan.khalikoi.rider.signin.SignInMain;
+import com.hihasan.khalikoi.rider.signin.Value;
+
+import org.w3c.dom.Text;
+
 public class PriceList extends AppCompatActivity
 {
     private CardView c1,c2,c3;
+    public TextView name2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +34,12 @@ public class PriceList extends AppCompatActivity
         c1=(CardView) findViewById (R.id.single);
         c2=(CardView) findViewById (R.id.shared);
         c3=(CardView) findViewById(R.id.parcel);
+
+
+//       name2=(TextView) findViewById (R.id.name);
+//        Intent intent=getIntent();
+//        String str=intent.getStringExtra("name");
+//        name2.setText(Value.name);
 
         actionBtn();
 
@@ -53,21 +69,27 @@ public class PriceList extends AppCompatActivity
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"No Driver Found :(", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(),"No Driver Found :(", Toast.LENGTH_LONG).show();
+                Intent i=new Intent(PriceList.this, Single.class);
+                startActivity(i);
             }
         });
 
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"No Driver Found :(", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"No Driver Found :(", Toast.LENGTH_LONG).show();
+                Intent i=new Intent(PriceList.this, Shared.class);
+                startActivity(i);
             }
         });
 
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"No Driver Found :(", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(),"No Driver Found :(", Toast.LENGTH_LONG).show();
+                Intent i=new Intent(PriceList.this, Parcel.class);
+                startActivity(i);
             }
         });
     }
