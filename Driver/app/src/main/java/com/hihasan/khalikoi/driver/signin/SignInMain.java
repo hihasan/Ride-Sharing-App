@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hihasan.khalikoi.driver.MainActivity;
+import com.hihasan.khalikoi.driver.MenuActivity;
 import com.hihasan.khalikoi.driver.R;
 import com.hihasan.khalikoi.driver.util.Value;
 
@@ -196,7 +197,7 @@ public class SignInMain extends AppCompatActivity
 
                 System.out.println("Right Info");
                 Log.d("Error","MEssage 1");
-                Intent intent = new Intent(SignInMain.this,MainActivity.class);
+                Intent intent = new Intent(SignInMain.this,MenuActivity.class);
                 startActivity(intent);
                 SignInMain.this.finish();
 

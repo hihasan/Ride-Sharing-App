@@ -36,7 +36,7 @@
 
         <activity android:name=".user.profile.ProfileEdit"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=""
+            android:parentActivityName=".MainActivity"
             android:label="Edit Profile"/>
         <activity
             android:name=".MainActivity"
@@ -61,14 +61,21 @@
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".PriceList"
             android:parentActivityName=".MainActivity"/>
+        <activity android:name=".CarSelect"
+            android:parentActivityName=".MainActivity"/>
 
         <!--confirm-->
         <activity android:name=".confirm.Single"
-            android:label="Confirm"/>
+            android:label="Confirm"
+            android:parentActivityName=".PriceList"/>
+
         <activity android:name=".confirm.Shared"
-            android:label="Confirm"/>
+            android:label="Confirm"
+            android:parentActivityName=".PriceList"/>
+
         <activity android:name=".confirm.Parcel"
-            android:label="Confirm"/>
+            android:label="Confirm"
+            android:parentActivityName=".PriceList"/>
 
 
     </application>

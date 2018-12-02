@@ -8,6 +8,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.hihasan.khalikoi.driver.ride.AllRide;
 import com.hihasan.khalikoi.driver.help.Help;
 
 public class MenuActivity extends AppCompatActivity
@@ -32,7 +33,7 @@ public class MenuActivity extends AppCompatActivity
         card_view1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MenuActivity.this, MainActivity.class);
+                Intent i=new Intent(MenuActivity.this, AllRide.class);
                 startActivity(i);
             }
         });

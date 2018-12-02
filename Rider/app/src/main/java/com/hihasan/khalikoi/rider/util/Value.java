@@ -7,5 +7,5 @@ public class Value
     public static String password;
     public static String car_types;
     public static String ride_types;
-    public static String fare;
+    public static int fare;
 }

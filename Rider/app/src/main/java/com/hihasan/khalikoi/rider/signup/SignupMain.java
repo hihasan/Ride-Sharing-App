@@ -66,8 +66,8 @@ public class SignupMain extends AppCompatActivity
 
                 InsertData(TempName, TempEmail,TempPassword);
 
-                Value.name=username.getText().toString();
-                Value.phone=email.getText().toString();
+                Value.rider=username.getText().toString();
+                Value.rider_phone=email.getText().toString();
                 Value.password=password.getText().toString();
 
                 Intent i=new Intent(getApplicationContext(),SignInMain.class);

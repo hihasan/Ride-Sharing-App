@@ -47,9 +47,11 @@
         <activity
             android:name=".signin.SignInMain"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".signup.SignupMain"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".signin.SignInMain"/>
+        <activity android:name=".ride.AllRide"
+            android:label="All Ride Request"/>
+        <activity android:name=".ride.ShowSingleRecordActivity"
+            android:label="Ride"/>
+
 
         <!--HELP-->
         <activity android:name=".help.Help"

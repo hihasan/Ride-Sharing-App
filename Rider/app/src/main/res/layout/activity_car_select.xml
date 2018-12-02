@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15sp">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/taxi"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="32dp">
+        <RelativeLayout
+            android:id="@+id/single_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/single_img"
+                android:layout_width="64sp"
+                android:layout_height="64sp"
+                android:src="@drawable/single"/>
+            <TextView
+                android:id="@+id/single_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/single_img"
+                android:text="Choose Taxi"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8sp"
+                android:layout_marginTop="8sp"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"/>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cng"
+        android:layout_below="@+id/taxi"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="32dp">
+        <RelativeLayout
+            android:id="@+id/shared_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/shared_img"
+                android:layout_width="64sp"
+                android:layout_height="64sp"
+                android:src="@drawable/shared"/>
+            <TextView
+                android:id="@+id/shared_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/shared_img"
+                android:text="Choose CNG"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8sp"
+                android:layout_marginTop="8sp"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"/>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/cng"
+        android:background="@android:color/holo_red_light"
+        android:text="Cancel"
+        android:textColor="@android:color/white" />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cancel"
+        android:layout_marginTop="8sp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

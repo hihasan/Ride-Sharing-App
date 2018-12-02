@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(getApplicationContext(),"please select destination", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Intent i=new Intent(MainActivity.this, PriceList.class);
+                    Intent i=new Intent(MainActivity.this, CarSelect.class);
                     startActivity(i);
                 }
 
@@ -325,7 +325,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onExplanationNeeded(List<String> permissionsToExplain) {
         //Ned to call why permission needed
-        Toast.makeText(getApplicationContext(),"Youneed permission To Open Maps ",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"You need permission To Open Maps ",Toast.LENGTH_SHORT).show();
     }
 
 

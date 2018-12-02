@@ -11,11 +11,13 @@ import android.widget.TextView;
 import com.hihasan.khalikoi.rider.confirm.Parcel;
 import com.hihasan.khalikoi.rider.confirm.Shared;
 import com.hihasan.khalikoi.rider.confirm.Single;
+import com.hihasan.khalikoi.rider.util.Value;
 
 public class PriceList extends AppCompatActivity
 {
     private CardView c1,c2,c3;
     public TextView name2;
+    int priceSingle,priceShared,priceParcel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,9 +42,9 @@ public class PriceList extends AppCompatActivity
 
         int  num=getRandomNumberInRange(4,25);
 
-       int priceSingle= num*12;
-        int priceShared=num*4;
-        int priceParcel=num*8;
+        priceSingle= num*12;
+        priceShared=num*4;
+        priceParcel=num*8;
 //
        String priceSingle_string=String.valueOf(priceSingle+" BDT");
        String priceShared_string=String.valueOf(priceShared+ " BDT");
@@ -65,6 +67,9 @@ public class PriceList extends AppCompatActivity
             @Override
             public void onClick(View view) {
                // Toast.makeText(getApplicationContext(),"No Driver Found :(", Toast.LENGTH_LONG).show();
+                Value.ride_types="Single";
+                Value.fare=priceSingle;
+                //Value.fare=String.valueOf(priceSingle);
                 Intent i=new Intent(PriceList.this, Single.class);
                 startActivity(i);
             }
@@ -73,6 +78,9 @@ public class PriceList extends AppCompatActivity
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Value.ride_types="Shared";
+                Value.fare=priceShared;
+                //Value.fare=String.valueOf(priceShared);
                 //Toast.makeText(getApplicationContext(),"No Driver Found :(", Toast.LENGTH_LONG).show();
                 Intent i=new Intent(PriceList.this, Shared.class);
                 startActivity(i);
@@ -82,6 +90,10 @@ public class PriceList extends AppCompatActivity
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Value.ride_types="Parcel";
+                Value.fare=priceParcel;
+                //Value.fare=String.valueOf(priceParcel);
+
                // Toast.makeText(getApplicationContext(),"No Driver Found :(", Toast.LENGTH_LONG).show();
                 Intent i=new Intent(PriceList.this, Parcel.class);
                 startActivity(i);
