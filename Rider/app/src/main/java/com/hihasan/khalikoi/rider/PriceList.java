@@ -7,15 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hihasan.khalikoi.rider.confirm.Parcel;
 import com.hihasan.khalikoi.rider.confirm.Shared;
 import com.hihasan.khalikoi.rider.confirm.Single;
-import com.hihasan.khalikoi.rider.signin.SignInMain;
-import com.hihasan.khalikoi.rider.signin.Value;
-
-import org.w3c.dom.Text;
 
 public class PriceList extends AppCompatActivity
 {
@@ -47,11 +42,11 @@ public class PriceList extends AppCompatActivity
 
        int priceSingle= num*12;
         int priceShared=num*4;
-        int priceParcel=num*4;
+        int priceParcel=num*8;
 //
-       String priceSingle_string=String.valueOf(priceSingle);
-       String priceShared_string=String.valueOf(priceShared);
-      String priceParcel_string=String.valueOf(priceParcel);
+       String priceSingle_string=String.valueOf(priceSingle+" BDT");
+       String priceShared_string=String.valueOf(priceShared+ " BDT");
+      String priceParcel_string=String.valueOf(priceParcel+" BDT");
 //
 //    //    Toast.makeText(getApplicationContext(),priceParcel,Toast.LENGTH_LONG).show();
 //

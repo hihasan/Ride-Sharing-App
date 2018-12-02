@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -15,9 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hihasan.khalikoi.rider.MainActivity;
-import com.hihasan.khalikoi.rider.PriceList;
 import com.hihasan.khalikoi.rider.R;
 import com.hihasan.khalikoi.rider.signup.SignupMain;
+import com.hihasan.khalikoi.rider.util.Value;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -77,7 +75,8 @@ public class SignInMain extends AppCompatActivity {
 
         // Initialize  AsyncLogin() class with email and password
         new AsyncLogin().execute(email,password);
-        Value.name=etEmail.getText().toString();
+        Value.rider_phone=etEmail.getText().toString();
+        Value.password=etPassword.getText().toString();
 
 //        name=etEmail.getText().toString();
 //        Intent i=new Intent();

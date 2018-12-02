@@ -61,9 +61,17 @@
             android:padding="12dp"
             android:background="@android:color/holo_green_light"
             android:textColor="@android:color/white"
-            android:text="Login" />
+            android:text="Login"
+            android:onClick="checkLogin"/>
 
-
+        <TextView android:id="@+id/link_signup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="No account yet? Create one"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:textSize="16dip"/>
 
     </LinearLayout>
 </ScrollView>

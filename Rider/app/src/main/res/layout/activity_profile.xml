@@ -45,7 +45,7 @@
                     android:textColor="@android:color/black"
                     android:layout_marginTop="8sp"/>
                 <TextView
-                    android:id="@+id/address"
+                    android:id="@+id/password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -53,25 +53,7 @@
                     android:text="User Address will be here"
                     android:textColor="@android:color/black"
                     android:layout_marginTop="8sp"/>
-                <TextView
-                    android:id="@+id/dob"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/address"
-                    android:text="User Date of Birth"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="8sp"/>
-                <TextView
-                    android:id="@+id/nid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/dob"
-                    android:text="User National Id"
-                    android:textColor="@android:color/black"
-                    android:layout_marginTop="8sp"
-                    android:layout_marginBottom="16sp"/>
+
 
             </RelativeLayout>
         </android.support.v7.widget.CardView>

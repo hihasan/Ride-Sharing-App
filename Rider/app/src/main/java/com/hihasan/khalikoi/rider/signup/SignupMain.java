@@ -4,6 +4,7 @@ package com.hihasan.khalikoi.rider.signup;
 
 import com.hihasan.khalikoi.rider.R;
 import com.hihasan.khalikoi.rider.signin.SignInMain;
+import com.hihasan.khalikoi.rider.util.Value;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -64,6 +65,10 @@ public class SignupMain extends AppCompatActivity
                 GetData();
 
                 InsertData(TempName, TempEmail,TempPassword);
+
+                Value.name=username.getText().toString();
+                Value.phone=email.getText().toString();
+                Value.password=password.getText().toString();
 
                 Intent i=new Intent(getApplicationContext(),SignInMain.class);
                 startActivity(i);
