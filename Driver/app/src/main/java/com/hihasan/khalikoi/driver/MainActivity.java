@@ -1,16 +1,20 @@
 package com.hihasan.khalikoi.driver;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -28,6 +32,7 @@ import android.widget.Toast;
 import com.hihasan.khalikoi.driver.help.Help;
 import com.hihasan.khalikoi.driver.settings.Settings;
 import com.hihasan.khalikoi.driver.user.profile.ProfileMain;
+import com.hihasan.khalikoi.driver.util.Value;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineListener;
 import com.mapbox.android.core.location.LocationEnginePriority;
@@ -52,6 +57,7 @@ import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 
+import java.net.URI;
 import java.util.List;
 
 import retrofit2.Call;
@@ -60,10 +66,10 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        OnMapReadyCallback,LocationEngineListener,PermissionsListener,MapboxMap.OnMapClickListener {
+        OnMapReadyCallback, LocationEngineListener, PermissionsListener, MapboxMap.OnMapClickListener {
 
-    private Context context=this;
-    private AppCompatButton fab_button,yes_signout,yes_exit,no_signout,no_exit;
+    private Context context = this;
+    private AppCompatButton fab_button, yes_signout, yes_exit, no_signout, no_exit;
     private TextView edit_profile;
 
     //MapBox Value
@@ -81,9 +87,10 @@ public class MainActivity extends AppCompatActivity
     private Point destinationPosition;
     private Marker destinationMarker;
 
+
     //Navigation Route Variables
     private NavigationMapRoute navigationMapRoute;
-    private static final String TAG="MainActivity";
+    private static final String TAG = "MainActivity";
 
     //Dummy Assets
     private AppCompatButton startButton;
@@ -113,28 +120,18 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String phoneNumber = String.format("tel: %s", Value.rider_phone);
 
-                if (destinationMarker !=null){
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-
-                    NavigationLauncherOptions options= NavigationLauncherOptions.builder()
-                            .origin(originPosition)
-                            .destination(destinationPosition)
-                            .shouldSimulateRoute(true)
-                            .build();
-
-                    NavigationLauncher.startNavigation(MainActivity.this,options);
-
-                    //Methods Will be implemented Here
-
+                // Create the intent.
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+                // Set the data for the intent as the phone number.
+                dialIntent.setData(Uri.parse(phoneNumber));
+                // If package resolves to an app, send intent.
+                if (dialIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(dialIntent);
+                } else {
+                    Log.e(TAG, "Can't resolve app for ACTION_DIAL Intent.");
                 }
-
-                else {
-                    Toast.makeText(getApplicationContext(),"Please Select The Destination",Toast.LENGTH_SHORT).show();
-                }
-
-                //I WIll Develop it latter
 
             }
         });

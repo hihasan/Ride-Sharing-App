@@ -77,7 +77,7 @@ public class SignInMain extends AppCompatActivity
         Value.phone=etEmail.getText().toString();
         Value.password=etPassword.getText().toString();
 
-//        name=etEmail.getText().toString();
+
 //        Intent i=new Intent();
 //        i.putExtra("name",name);
 //        startActivity(i);

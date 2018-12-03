@@ -31,6 +31,6 @@
         android:layout_margin="@dimen/fab_margin"
 
         app:backgroundTint="@color/navbar"
-        app:srcCompat="@drawable/search" />
+        app:srcCompat="@android:drawable/stat_sys_phone_call" />
 
 </android.support.design.widget.CoordinatorLayout>
