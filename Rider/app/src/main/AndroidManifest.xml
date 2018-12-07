@@ -77,6 +77,10 @@
             android:label="Confirm"
             android:parentActivityName=".PriceList"/>
 
+        <activity android:name=".privacy.Privacy"
+            android:label="Privacy Policy"
+            android:parentActivityName=".MainActivity"/>
+
 
     </application>
 

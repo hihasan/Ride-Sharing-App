@@ -26,7 +26,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hihasan.khalikoi.rider.help.Help;
+import com.hihasan.khalikoi.rider.privacy.Privacy;
 import com.hihasan.khalikoi.rider.settings.Settings;
+import com.hihasan.khalikoi.rider.signin.SignInMain;
 import com.hihasan.khalikoi.rider.user.profile.ProfileMain;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineListener;
@@ -485,8 +487,12 @@ public class MainActivity extends AppCompatActivity
             yes_signout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(),"If User Loged in it will send them to SIgn In page",Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(MainActivity.this, SignInMain.class);
+                    Toast.makeText(getApplicationContext(),"Signed Out",Toast.LENGTH_SHORT).show();
                    // System.exit(0);
+                    startActivity(i);
+                    finish();
+
                 }
             });
 
@@ -533,7 +539,9 @@ public class MainActivity extends AppCompatActivity
         }
 
         else if (id == R.id.nav_privacy) {
-            Toast.makeText(getApplicationContext(),"This Will Open Privacy Policy Written By us",Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getApplicationContext(),"This Will Open Privacy Policy Written By us",Toast.LENGTH_SHORT).show();
+            Intent i=new Intent(MainActivity.this, Privacy.class);
+            startActivity(i);
         }
 
         else if (id == R.id.nav_about) {

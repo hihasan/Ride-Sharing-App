@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity
                 // If package resolves to an app, send intent.
                 if (dialIntent.resolveActivity(getPackageManager()) != null) {
                     startActivity(dialIntent);
+
                 } else {
                     Log.e(TAG, "Can't resolve app for ACTION_DIAL Intent.");
                 }
