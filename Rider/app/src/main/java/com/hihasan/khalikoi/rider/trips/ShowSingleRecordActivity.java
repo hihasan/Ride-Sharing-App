@@ -1,10 +1,10 @@
-package com.hihasan.khalikoi.rider.payment;
+package com.hihasan.khalikoi.rider.trips;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-public class Payment extends AppCompatActivity
+class ShowSingleRecordActivity extends AppCompatActivity
 {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -8,4 +8,8 @@ public class Value
     public static String car_types;
     public static String ride_types;
     public static int fare;
+
+    public String RideListRider;
+    public String RideListDriver;
+    public String RideListFare;
 }

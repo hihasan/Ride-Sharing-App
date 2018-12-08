@@ -26,9 +26,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hihasan.khalikoi.rider.help.Help;
+import com.hihasan.khalikoi.rider.payment.Payment;
 import com.hihasan.khalikoi.rider.privacy.Privacy;
 import com.hihasan.khalikoi.rider.settings.Settings;
 import com.hihasan.khalikoi.rider.signin.SignInMain;
+import com.hihasan.khalikoi.rider.trips.TripList;
 import com.hihasan.khalikoi.rider.user.profile.ProfileMain;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineListener;
@@ -452,6 +454,8 @@ public class MainActivity extends AppCompatActivity
         //Trips Details
         else if (id == R.id.nav_trips) {
             // Handle the camera action
+            Intent  i=new Intent(MainActivity.this, TripList.class);
+            startActivity(i);
         }
 
         //Help Details
@@ -464,6 +468,8 @@ public class MainActivity extends AppCompatActivity
 
         //PAyment Details
         else if (id == R.id.nav_payment) {
+            Intent i=new Intent(MainActivity.this, Payment.class);
+            startActivity(i);
 
         }
 

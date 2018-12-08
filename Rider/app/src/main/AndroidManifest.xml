@@ -81,6 +81,10 @@
             android:label="Privacy Policy"
             android:parentActivityName=".MainActivity"/>
 
+        <activity android:name=".trips.TripList"
+            android:label="Trip List"
+            android:parentActivityName=".MainActivity"/>
+
 
     </application>
 
