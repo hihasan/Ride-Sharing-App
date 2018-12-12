@@ -35,8 +35,8 @@
 
         <!--Profile-->
         <activity android:name=".user.profile.ProfileMain"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="Profile"/>
+            android:label="Profile"
+            android:parentActivityName=".MenuActivity"/>
         <activity android:name=".user.profile.ProfileEdit"
             android:theme="@style/AppTheme.NoActionBar"
             android:label="Edit Profile"/>

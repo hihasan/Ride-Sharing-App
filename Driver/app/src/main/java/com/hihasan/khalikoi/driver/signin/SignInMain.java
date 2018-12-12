@@ -70,7 +70,7 @@ public class SignInMain extends AppCompatActivity
         // Get text from email and passord field
         final String email = etEmail.getText().toString();
         final String password = etPassword.getText().toString();
-
+        Value.phone=etEmail.getText().toString();
 
         // Initialize  AsyncLogin() class with email and password
         new AsyncLogin().execute(email,password);

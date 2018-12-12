@@ -124,7 +124,7 @@ public class ProfileMain extends AppCompatActivity
                                 // Adding Student Id TO IdList Array.
                                 IdList.add(jsonObject.getString("id").toString());
                                 System.out.println("Rider Phone: "+Value.rider_phone);
-                                if (jsonObject.getString("driver_phone").toString().equals(Value.rider_phone)){
+                                if (jsonObject.getString("driver_phone").toString().equals(Value.phone)){
                                     //Adding Student Name.
                                     ride.RideListRider =("User Name: "+jsonObject.getString("driver_name").toString());
                                     System.out.println();
