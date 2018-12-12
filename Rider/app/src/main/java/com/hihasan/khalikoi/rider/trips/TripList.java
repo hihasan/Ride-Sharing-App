@@ -126,9 +126,9 @@ public class TripList extends AppCompatActivity
                                     ride.RideListFare = ("Fare: "+jsonObject.getString("fare").toString());
                                 }
 
-                                else {
-                                    Toast.makeText(getApplicationContext(),"No Rides FOund",Toast.LENGTH_SHORT).show();
-                                }
+//                                else {
+//                                    Toast.makeText(getApplicationContext(),"No Rides FOund",Toast.LENGTH_SHORT).show();
+//                                }
 
 
 

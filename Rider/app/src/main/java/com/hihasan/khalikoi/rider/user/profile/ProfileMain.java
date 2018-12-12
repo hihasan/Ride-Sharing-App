@@ -24,17 +24,15 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.hihasan.khalikoi.rider.R;
-import com.hihasan.khalikoi.rider.trips.TripList;
 import com.hihasan.khalikoi.rider.util.HttpServicesClass;
-import com.hihasan.khalikoi.rider.util.ListAdapterClass;
+import com.hihasan.khalikoi.rider.util.ListAdapterClassProfile;
 import com.hihasan.khalikoi.rider.util.Value;
-import com.hihasan.khalikoi.rider.util.HttpParse;
 
 public class ProfileMain extends AppCompatActivity
 {
     ListView StudentListView;
     ProgressBar progressBar;
-    String HttpUrl = "http://bachaw.com/api/trip_list.php";
+    String HttpUrl = "http://bachaw.com/api/profile.php";
     List<String> IdList = new ArrayList<>();
 
     @Override
@@ -46,7 +44,7 @@ public class ProfileMain extends AppCompatActivity
 
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
 
-        new TripList.GetHttpResponse(ProfileMain.this).execute();
+        new GetHttpResponse(ProfileMain.this).execute();
 
         //Adding ListView Item click Listener.
         StudentListView.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -56,10 +54,16 @@ public class ProfileMain extends AppCompatActivity
 
                 // TODO Auto-generated method stub
 
-                Toast.makeText(getApplicationContext(),"User Profile",Toast.LENGTH_SHORT).sh
+//                Intent intent = new Intent(TripList.this,ShowSingleRecordActivity.class);
+//
+//                // Sending ListView clicked value using intent.
+//                intent.putExtra("ListViewValue", IdList.get(position).toString());
+//
+//                startActivity(intent);
 
                 //Finishing current activity after open next activity.
-                finish();
+//                finish();
+                Toast.makeText(getApplicationContext(),"Your profile",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -118,18 +122,23 @@ public class ProfileMain extends AppCompatActivity
                                 jsonObject = jsonArray.getJSONObject(i);
 
                                 // Adding Student Id TO IdList Array.
-                                IdList.add(jsonObject.getString("rides_id").toString());
+                                IdList.add(jsonObject.getString("id").toString());
                                 System.out.println("Rider Phone: "+Value.rider_phone);
-                                if (jsonObject.getString("rider_phone").toString().equals(Value.rider_phone)){
+                                if (jsonObject.getString("email").toString().equals(Value.rider_phone)){
                                     //Adding Student Name.
-                                    ride.RideListRider =("User Phone: "+jsonObject.getString("rider_phone").toString());
-                                    ride.RideListDriver =("Driver Name:"+jsonObject.getString("driver_name").toString()) ;
-                                    ride.RideListFare = ("Fare: "+jsonObject.getString("fare").toString());
+                                    ride.RideListRider =("User Phone: "+jsonObject.getString("username").toString());
+                                    System.out.println();
+                                    ride.RideListDriver =("Driver Name:"+jsonObject.getString("email").toString()) ;
+                                    ride.RideListFare = ("Fare: "+jsonObject.getString("password").toString());
+
+                                    System.out.println("user "+ride.RideListRider);
+                                    System.out.println("user "+ride.RideListDriver);
+                                    System.out.println("user "+ride.RideListFare);
                                 }
 
-                                else {
-                                    Toast.makeText(getApplicationContext(),"No Rides FOund",Toast.LENGTH_SHORT).show();
-                                }
+//                                else {
+//                                    Toast.makeText(getApplicationContext(),"No Rides FOund",Toast.LENGTH_SHORT).show();
+//                                }
 
 
 
@@ -164,16 +173,11 @@ public class ProfileMain extends AppCompatActivity
 
             StudentListView.setVisibility(View.VISIBLE);
 
-            ListAdapterClass adapter = new ListAdapterClass(studentList, context);
+            ListAdapterClassProfile adapter = new ListAdapterClassProfile(studentList, context);
 
             StudentListView.setAdapter(adapter);
 
         }
     }
-
-
-
-
-
 
 }

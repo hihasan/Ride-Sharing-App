@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
     private LocationLayerPlugin locationLayerPlugin;
     private Location originLocation;
     private AppCompatEditText current_location, destination;
-    private AppCompatButton submit_search;
+    private AppCompatButton submit_search,start;
 
     //Pointer Position
     private Point originPosition;
@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
+        start=(AppCompatButton) findViewById (R.id.start);
+
 //        edit_profile=(TextView) findViewById (R.id.edit_profile);
 //        edit_profile.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -120,6 +122,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                start.setVisibility(View.VISIBLE);
                 String phoneNumber = String.format("tel: %s", Value.rider_phone);
 
                 // Create the intent.
@@ -137,12 +140,40 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v.isPressed()==true){
+                    if (destinationMarker !=null){
+                    Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+
+                    NavigationLauncherOptions options= NavigationLauncherOptions.builder()
+                            .origin(originPosition)
+                            .destination(destinationPosition)
+                            .shouldSimulateRoute(true)
+                            .build();
+
+                    NavigationLauncher.startNavigation(MainActivity.this,options);
+
+                    //Methods Will be implemented Here
+
+                }
+
+                else {
+                    Toast.makeText(getApplicationContext(),"Please Select The Destination",Toast.LENGTH_SHORT).show();
+                }
+
+                }
+            }
+        });
+
         //Drawer Layout
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+//        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.setDrawerListener(toggle);
+//        toggle.syncState();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

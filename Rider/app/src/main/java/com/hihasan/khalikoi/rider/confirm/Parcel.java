@@ -28,21 +28,22 @@ import java.util.List;
 
 public class Parcel extends AppCompatActivity
 {
-    String ServerURL = "http://bachaw.com/api/ride.php" ;
+    String ServerURL = "http://bachaw.com/api/ride.php";
 
     private TextView rider, rider_phone, car_types, ride_types, fare;
     String TempRider, TempPhone, TempCar, TempRide, TempFare;
     private AppCompatButton button;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parcel);
 
-        rider=(TextView) findViewById (R.id.rider_name);
-        rider_phone=(TextView) findViewById (R.id.rider_phone);
-        car_types=(TextView) findViewById (R.id.car_types);
-        ride_types=(TextView) findViewById (R.id.ride_types);
-        fare=(TextView) findViewById (R.id.fare);
+        rider = (TextView) findViewById(R.id.rider_name);
+        rider_phone = (TextView) findViewById(R.id.rider_phone);
+        car_types = (TextView) findViewById(R.id.car_types);
+        ride_types = (TextView) findViewById(R.id.ride_types);
+        fare = (TextView) findViewById(R.id.fare);
 
         rider.setText(Value.rider);
         rider_phone.setText(Value.rider_phone);
@@ -50,14 +51,14 @@ public class Parcel extends AppCompatActivity
         ride_types.setText(Value.ride_types);
         fare.setText(String.valueOf(Value.fare));
 
-        button=(AppCompatButton) findViewById (R.id.confirm);
+        button = (AppCompatButton) findViewById(R.id.cancel);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 GetData();
 
-                InsertData(TempRider, TempPhone,TempCar, TempRide, TempFare);
+                InsertData(TempRider, TempPhone, TempCar, TempRide, TempFare);
 
 //                Value.rider=username.getText().toString();
 //                Value.rider_phone=email.getText().toString();
@@ -70,7 +71,7 @@ public class Parcel extends AppCompatActivity
         });
     }
 
-    public void GetData(){
+    public void GetData() {
 
         TempRider = rider.getText().toString();
 //        System.out.println(TempName);
@@ -78,23 +79,23 @@ public class Parcel extends AppCompatActivity
 //        System.out.println(TempEmail);
         TempCar = car_types.getText().toString();
 //        System.out.println(TempPassword);
-        TempRide=ride_types.getText().toString();
-        TempFare=fare.getText().toString();
+        TempRide = ride_types.getText().toString();
+        TempFare = fare.getText().toString();
 
     }
 
-    public void InsertData(final String rider, final String rider_phone,final String car_types,
-                           final String ride_types, final String fare){
+    public void InsertData(final String rider, final String rider_phone, final String car_types,
+                           final String ride_types, final String fare) {
 
         class SendPostReqAsyncTask extends AsyncTask<String, Void, String> {
             @Override
             protected String doInBackground(String... params) {
 
-                String RiderHolder = rider ;
-                String PhoneHolder = rider_phone ;
-                String CarHolder=car_types;
-                String RideHolder=ride_types;
-                String FareHolder=fare;
+                String RiderHolder = rider;
+                String PhoneHolder = rider_phone;
+                String CarHolder = car_types;
+                String RideHolder = ride_types;
+                String FareHolder = fare;
 
 
                 List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
@@ -138,6 +139,6 @@ public class Parcel extends AppCompatActivity
 
         SendPostReqAsyncTask sendPostReqAsyncTask = new SendPostReqAsyncTask();
 
-        sendPostReqAsyncTask.execute(rider,rider_phone,car_types,ride_types,fare);
+        sendPostReqAsyncTask.execute(rider, rider_phone, car_types, ride_types, fare);
     }
 }

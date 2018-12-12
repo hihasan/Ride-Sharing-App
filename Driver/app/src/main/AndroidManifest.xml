@@ -42,7 +42,8 @@
             android:label="Edit Profile"/>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MenuActivity"/>
 
         <!-- Sign in & Up -->
         <activity
