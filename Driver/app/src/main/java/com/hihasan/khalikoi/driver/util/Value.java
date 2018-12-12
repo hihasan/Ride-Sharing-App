@@ -7,4 +7,8 @@ public class Value
     public static String phone;
     public static String password;
     public  String RideList;
+
+    public String RideListRider;
+    public String RideListDriver;
+    public String RideListFare;
 }

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.hihasan.khalikoi.driver.ride.AllRide;
 import com.hihasan.khalikoi.driver.help.Help;
+import com.hihasan.khalikoi.driver.user.profile.ProfileMain;
 
 public class MenuActivity extends AppCompatActivity
 {
@@ -68,7 +69,9 @@ public class MenuActivity extends AppCompatActivity
         card_view5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Profile",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Profile",Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(MenuActivity.this, ProfileMain.class);
+                startActivity(i);
             }
         });
 

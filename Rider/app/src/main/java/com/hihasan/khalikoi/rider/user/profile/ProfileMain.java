@@ -126,10 +126,10 @@ public class ProfileMain extends AppCompatActivity
                                 System.out.println("Rider Phone: "+Value.rider_phone);
                                 if (jsonObject.getString("email").toString().equals(Value.rider_phone)){
                                     //Adding Student Name.
-                                    ride.RideListRider =("User Phone: "+jsonObject.getString("username").toString());
+                                    ride.RideListRider =("User Name: "+jsonObject.getString("username").toString());
                                     System.out.println();
-                                    ride.RideListDriver =("Driver Name:"+jsonObject.getString("email").toString()) ;
-                                    ride.RideListFare = ("Fare: "+jsonObject.getString("password").toString());
+                                    ride.RideListDriver =("User Phone:"+jsonObject.getString("email").toString()) ;
+                                    ride.RideListFare = ("Password: "+jsonObject.getString("password").toString());
 
                                     System.out.println("user "+ride.RideListRider);
                                     System.out.println("user "+ride.RideListDriver);
